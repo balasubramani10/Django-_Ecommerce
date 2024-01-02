@@ -1,0 +1,48 @@
+{% include 'header.html' %}
+<div class="container">
+<div class="row">
+    <div class="col-md-12 mt=3">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3767.2227266692203!2d72.85332931041849!3d19.229122581932174!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b187b227565b%3A0x6b501cc07463dd16!2sItvedant%20Education%20Pvt%20Ltd%20Borivali!5e0!3m2!1sen!2sin!4v1699870696849!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div> <!-- end of google map-->
+    <div class="col-md-6 mt-5">
+        <h3><i class="bi bi-building-fill"></i></h3>
+        <hr>
+          Bhandarkar Bhavan,<br>
+          Opp to Police Station,<br>
+          Borivali(W),Mum-400102,<br>
+          <h6 class="mt-2"><i class="bi bi-telephone-fill text-danger"></i>&nbsp;&nbsp;43543543</h6>
+          <h6 class="mt-2"><i class="bi bi-envelope-fill text-danger"></i>&nbsp;&nbsp;abc@gmail.com</h6>
+    </div><!--Address mobile and Email end-->
+
+    <div class="col-md-6 mt-5">
+            <h3><i class="bi bi-question-circle-fill text-danger"></i></h3>
+            <hr>
+            <form method="post" action="">
+                <div class="mb-2">
+                    <label for="input1" class="form-label"><strong>Name</strong></label>
+                    <input type="text" class="form-control" id="input1" placeholder="Enter your name">
+                </div>
+
+                <div class="mb-2">
+                  <label for="input2" class="form-label"><strong>Mobile</strong></label>
+                  <input type="number" class="form-control" id="input2" placeholder="Enter mobile number">
+                </div>
+
+                <div class="mb-2">
+                    <label for="input3" class="form-label"><strong>Mobile</strong></label>
+                    <input type="email" class="form-control" id="input3" placeholder="Enter email_id">
+                </div>
+
+                <div class="mb-2">
+                    <label for="input4" class="form-label"><strong>Message</strong></label>
+                    <textarea name="msg" class="form-control"  id="input4" cols="30" rows="5"></textarea>
+                </div>
+
+                <div class="mb-2">
+                  <input type="submit" class="btn btn-danger" value="Send">
+                </div>
+            </form>
+    </div><!--Contact form-->
+</div>
+</div>
+{% include 'footer.html' %}

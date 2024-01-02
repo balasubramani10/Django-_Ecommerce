@@ -1,0 +1,51 @@
+{% include 'header.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-9 p-3">
+            <div class="row">
+                {% for item in cart_items %}
+                <div class="col-md-5 mb-4"> <!-- Added mb-4 class for margin-bottom -->
+                    <div class="card h-80"> <!-- Added h-100 class for equal card height -->
+                        <div class="col-12 mt-3">
+                            <img src="{{item.product_id.image.url}}" class="card-img-top" alt="{{item.product_id.product_name}}"
+                                width="50px" height="80px">
+                        </div>
+                        <div class="card-body">
+                            <center>
+                                <p class="card-title">{{item.product_id.product_name}}</p>
+                            </center>
+                                <p class="card-text">Product Details: {{item.product_id.desc}}</p>
+                            <center>
+                                <p  style="padding-bottom: 15px;" class="card-text">Rs.{{item.product_id.price}}</p>
+                            </center>
+                            <p>
+                                <strong>QTY:</strong>
+                                <a href="/updateqty/0/{{item.product_id.product_id}}"><button class="btn btn-danger">-</button></a>
+                                <input type="number" value="{{item.qty}}">
+                                <a href="/updateqty/1/{{item.product_id.product_id}}"><button class="btn btn-success">+</button></a>
+                            </p>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <!-- <a href="#" class="btn btn-danger">Remove</a> -->
+                                    <a href="/remove_from_order/{{item.product_id.product_id}}" class="btn btn-danger">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            </div>
+
+        <div class="col-md-3 bg-light p-3">
+            <h5 class="bg-danger text-white p-2">Total Amount Section</h5>
+            <p><strong>Total ({{items}}):</strong> Rs. {{total}}</p>
+            <hr>
+            <p><strong>Total Amount:</strong> Rs. {{total}} </p>
+            <a href="{% url 'makepayment' %}"><button class="btn btn-danger">Make Payment</button></a>
+        </div>
+
+    </div>
+    </div>
+
+{% include 'footer.html' %}

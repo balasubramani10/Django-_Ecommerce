@@ -1,0 +1,32 @@
+{% include 'header.html' %}
+<title>Register</title>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-4 mt-5 mx-auto shadow p-5">
+            <h2 class="mb-5 text-center">User Login</h2>
+            {% if errmsg %}
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <strong>Error!</strong>
+                    {{errmsg}}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+           <form method="post" action="">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="input1" class="form-label"><strong>UserName:</strong></label>
+                <input type="email" class="form-control" name="uname" id="input1" placeholder="name@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="input2" class="form-label"><strong>Password:</strong></label>
+                <input type="password" class="form-control" name="upass"   id="input2" placeholder="Enter password">
+            </div>              
+            <div class="mb-3">
+                <input type="submit" class="btn btn-danger" value="Login">
+                New User?<a href="{% url 'register' %}">Register</a>
+            </div>
+           </form>
+        </div>
+    </div>
+</div>
+{% include 'footer.html' %}

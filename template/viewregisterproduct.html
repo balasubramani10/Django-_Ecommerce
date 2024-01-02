@@ -1,0 +1,47 @@
+{% include 'header.html' %}
+<div class="container">
+    <div class="row">
+
+<center class="m-1">
+    <h2>Product Details</h2>
+</center>
+<div class="row mt-5 p-2" > 
+    <table border="1" width="500px" align="center" style="caption-side: top;"> 
+        <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Product ID</th>
+            <th>Product name</th>
+            <th>Category</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Image</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for i in allproducts %}
+        <tr>  
+                <td>{{i.userid}}</td>
+                <td>{{i.product_id}}</td>
+                <td>{{i.product_name}}</td>
+                <td>{{i.category}}</td>
+                <td>{{i.desc}}</td> 
+                <td>{{i.price}}</td> 
+                <td>{{i.image}}</td> 
+                <td><a href="/updateproducts/{{i.product_id}}">Edit</a></td>
+                <td>
+                <a href="/deleteproducts/{{i.product_id}}">Delete</a>
+                </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+<br><br><br>
+
+        
+</div>
+</div>
+{% include 'footer.html' %}

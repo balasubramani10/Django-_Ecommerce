@@ -1,0 +1,25 @@
+{% include 'header.html' %}
+<div class="container">
+    <div class="row">
+        <table class="table table-border">
+            <tr>
+                <th>Sr.No</th>
+                <th>Order ID</th>
+                <th>Product ID</th>
+                <th>QTY</th>
+            </tr>
+            
+            {% for x in allorders %}
+                <tr>
+                <th>{{forloop.counter}}</th>
+                <th>{{x.order_id}}</th>
+                <th>{{x.product_id}}</th>
+                <th>{{x.qty}}</th> 
+                </tr>
+            {% endfor %}
+            
+        </table>
+    </div>
+    </div>
+
+{% include 'footer.html' %}

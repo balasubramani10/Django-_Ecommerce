@@ -1,0 +1,72 @@
+{% include 'header.html' %}
+<title>ShopKart|Home</title>
+<div class="container">
+<div class="row">
+    {% if query %}
+    <center><h5>Search result for:<strong>{{query}}</strong></h5></center>
+    {% endif %}
+    <div class="col-md-3 bg-light p-3">
+        <h5>Filter by category</h5>
+        <p><a href="{% url 'index' %}" class="anchor">All</a></p>
+        <p><a href="{% url 'mobilelistview' %}" class="anchor">By Mobile</a></p>
+        <p><a href="{% url 'clothslistview' %}" class="anchor">By Cloths</a></p>
+        <p><a href="{% url 'shoeslistview' %}" class="anchor">By Shoes</a></p>
+        <hr>
+        <h5>Filter by Price</h5>
+        <hr>
+        <form method="post" action="{% url 'range_view' %}">
+            {% csrf_token %}
+        <div class="mb-2">
+            <label for="input1" class="form-label"><strong>Min:</strong></label>
+            <input type="number" class="form-control" name="min" id="input1" placeholder="Min Value">
+        </div>
+
+        <div class="mb-2">
+          <label for="input2" class="form-label"><strong>Max:</strong></label>
+          <input type="number" class="form-control" name="max" id="input2" placeholder="Max Value">
+        </div>
+
+        <div class="mb-2">
+          <input type="submit" class="btn btn-danger" value="Search">
+        </div>
+
+        </form>
+        <h5 class="mt-3">Sort by Price</h5>
+        <hr>
+        <p><a href="{% url 'allsortedorderview' %}?sort=high_to_low" class="anchor">High to Low</a></p>
+        <p><a href="{% url 'allsortedorderview' %}?sort=low_to_high" class="anchor">Low to High</a></p>
+    </div>  <!--end of side bar-->
+
+    <div class="col-md-9 mt-4 bg-light p-3">
+        <div class="row">
+            {% for item in allproducts %}
+            <div class="col-md-3 mb-4"> <!-- Added mb-4 class for margin-bottom -->
+                <div class="card h-100"> <!-- Added h-100 class for equal card height -->
+                    <div class="col-12 mt-3">
+                        <img src="{{item.image.url}}" class="card-img-top" alt="{{item.product_name}} " width="100px" height="100px">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-title">Product Name: {{item.product_name}}</p>
+                        <p class="card-text">Product Details: {{item.desc}}</p>
+                        <p class="card-text">Price: Rs.{{item.price}}</p>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="/add_to_cart/{{item.product_id}}" class="btn btn-danger">Add to Cart</a>
+                            </div>
+                            <div class="col-md-6">
+                                <a href="/add_to_cart/{{item.product_id}}" class="btn btn-danger">Buy Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div> <!--product list-->
+    
+    
+
+
+</div>
+</div>
+{% include 'footer.html' %}

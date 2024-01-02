@@ -1,0 +1,22 @@
+{% include 'header.html' %}
+<div class="container">
+<div class="row">
+<center>
+    <p>Edit Products</p>
+    {% for x in allproducts %}
+    <form action = "" method = "post" enctype="multipart/form-data">
+        <div class="mb-3 p-2 mt-5 m-2">
+        {% csrf_token %}
+        <table >
+            {{ form.as_table }}
+        </table>
+        <br>
+        <input type="submit" value="Submit">
+    </div>
+    </form>
+    {% endfor %}
+    </center>
+</div>
+</div>
+
+{% include 'footer.html' %}
